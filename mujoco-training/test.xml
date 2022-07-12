@@ -1,0 +1,30 @@
+<mujoco model="test">
+    <compiler coordinate="global"/>
+    <default>
+        <geom rgba=".9 .7 .1 1" size="0.01"/>
+    </default>
+    <worldbody>
+        <site name="s2" pos="-0.03 0 0.32"/>
+        <body>
+            <geom type="capsule" fromto="0 0 0.3 0.1 0 0.3"/>
+            <geom name="g1" type="cylinder" fromto="0.0 0.015 0.3 0.0 -0.015 0.3" size="0.02" rgba=".3 .9 .3 .4"/>
+            <joint pos="0 0 0.3" type="hinge" axis="0 1 0" limited="true" range="0 60" solimplimit="0.95 0.95 0.1"/>
+            <site name="s3" pos="0.02 0 0.32"/>
+            <body>
+                <geom type="capsule" fromto="0.1 0 0.3 0.2 0 0.3"/>
+                <geom name="g2" type="cylinder" fromto="0.1 0.015 0.3 0.1 -0.015 0.3" size="0.02" rgba=".3 .9 .3 .4"/>
+                <joint pos="0.1 0 0.3" type="hinge" axis="0 1 0" limited="true" range="0 60" solimplimit="0.95 0.95 0.1"/>
+                <site name="s4" pos="0.13 0 0.31"/>
+                <site name="s5" pos="0.15 0 0.32"/>
+                <site name="side2" pos="0.1 0 0.33"/>
+                <body>
+                    <geom type="capsule" fromto="0.2 0 0.3 0.27 0 0.3"/>
+                    <geom name="g3" type="cylinder" fromto="0.2 0.015 0.3 0.2 -0.015 0.3" size="0.02" rgba=".3 .9 .3 .4"/>
+                    <joint pos="0.2 0 0.3" type="hinge" axis="0 1 0" limited="true" range="0 60" solimplimit="0.95 0.95 0.1"/>
+                    <site name="s6" pos="0.23 0 0.31"/>
+                    <site name="side3" pos="0.2 0 0.33"/>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+</mujoco>

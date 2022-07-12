@@ -1,0 +1,40 @@
+<mujoco model="kitty_bank">
+    <actuator>
+        <!-- Physical limits of the actuator. -->
+        <motor ctrllimited="true" ctrlrange="-40.0 40.0" joint="joint1" name="torq_j1"/>
+        <motor ctrllimited="true" ctrlrange="-40.0 40.0" joint="joint2" name="torq_j2"/>
+        <motor ctrllimited="true" ctrlrange="-40.0 40.0" joint="joint3" name="torq_j3"/>
+    </actuator>
+
+    <default>
+        <geom rgba=".9 .7 .1 1" size="0.01"/>
+    </default>
+
+    <worldbody>
+        <light diffuse=".5 .5 .5" pos="0 0 3" dir="0 0 -1"/>
+        <geom type="plane" pos="0 0 -0.5" size="1 1 0.1" rgba="1 1 1 1"/>
+        <body name="base" pos="0 0 0">
+            <!-- robot view -->
+            <camera mode="fixed" name="robotview" pos="1.0 0 0.4" quat="0.653 0.271 0.271 0.653"/>
+            <inertial diaginertia="0 0 0" mass="0" pos="0 0 0"/>
+
+            <!-- mount attached here -->
+            <body name="link0" pos="0 0 0">
+                <geom name="g1" type="cylinder" fromto="0.0 0.015 0.3 0.0 -0.015 0.3" size="0.02" rgba=".9 .1 .1 .9" euler="0 0 30"/>
+                <geom type="capsule" fromto="0 0 0.3 0.1 0 0.3" />
+                <joint name="joint1" pos="0 0 0.3" type="hinge" axis="0 1 0" limited="true" range="0 180"/>
+                <body>
+                    <geom type="capsule" fromto="0.1 0 0.3 0.2 0 0.3"/>
+                    <geom name="g2" type="cylinder" fromto="0.1 0.015 0.3 0.1 -0.015 0.3" size="0.02" rgba=".3 .9 .3 .4"/>
+                    <joint name="joint2" pos="0.1 0 0.3" type="hinge" axis="0 1 0" limited="true" range="0 180"/>
+                    <body>
+                        <geom type="capsule" fromto="0.2 0 0.3 0.27 0 0.3"/>
+                        <geom name="g3" type="cylinder" fromto="0.2 0.015 0.3 0.2 -0.015 0.3" size="0.02" rgba=".3 .9 .3 .4"/>
+                        <joint name="joint3" pos="0.2 0 0.3" type="hinge" axis="0 1 0" limited="true" range="0 180"/>
+                        <geom type="sphere" pos="0.285 0 0.3" size="0.02" rgba=".9 .1 .1 .9"/>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </worldbody>
+</mujoco>

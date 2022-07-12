@@ -1,0 +1,24 @@
+# Setup environments for using with rlkit
+name: kitty-bank
+channels:
+- pytorch
+- anaconda  # for mkl
+dependencies:
+- python=3.9
+- pip
+- cython
+- ipython  # technically unnecessary
+- joblib
+- lockfile
+- mako
+- matplotlib
+- mkl
+- numpy
+- path.py
+- python-dateutil
+- pytorch
+- scipy
+- patchelf
+- swig
+variables:
+  LD_PRELOAD: /usr/lib/x86_64-linux-gnu/libGLEW.so
